@@ -7,7 +7,16 @@ import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { MovieCardComponent } from './movie/movie-card/movie-card.component';
 import { MovieDetailComponent } from './movie/movie-detail/movie-detail.component';
+import { RouterModule, Routes } from '@angular/router';
+import { MainComponent } from './main/main.component';
 
+
+const appRoutes: Routes = [
+  { path: 'homepage', component: HomepageComponent },
+  { path: 'login', component: LoginComponent},
+  { path: '', component: HomepageComponent },
+  { path: 'register', component: RegisterComponent }
+];
 
 @NgModule({
   declarations: [
@@ -16,13 +25,19 @@ import { MovieDetailComponent } from './movie/movie-detail/movie-detail.componen
     LoginComponent,
     RegisterComponent,
     MovieCardComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    MainComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
   ],
   providers: [],
-  
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

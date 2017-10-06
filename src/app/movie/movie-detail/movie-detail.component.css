@@ -7,13 +7,15 @@
     margin-top: 10px;
     margin-bottom: 10px;
     width:260px;
-    height:360px;
+    height:300px;
 
 }
 .user-img{
     border-radius: 50%;
     height: 100px;
     width: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;  
 }
 .avrg-rating{
     padding-top: 25px;
@@ -26,6 +28,8 @@
     font-weight: 500;
 }
 .movie-description{
+    min-height: 250px;
+
     font-size: 18px;    
     padding: 15px;
     font-family: 'Roboto Slab', serif;
@@ -45,6 +49,7 @@
     font-family: 'Slabo 27px', serif;
     padding-top: 10px;
     padding-left: 10px;
+    min-height: 80px;
 }
 .carousel-item{
     width: 33%;
@@ -69,3 +74,9 @@
   .card-1:hover {
     box-shadow: 0 5px 8px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   }
+.text-area{
+    height: 100px;
+    width: 800px;
+    margin-top: 10px;
+    
+}

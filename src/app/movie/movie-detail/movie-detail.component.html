@@ -1,112 +1,134 @@
 <div class="box">
-    <div class="container">
-        <div class="row card-1" >
-          <div class="col-md-3 ">
-            <div>
-                <img class="movie-img img-responsive" src="https://static.comicvine.com/uploads/scale_small/11/113509/4413258-ultron.jpg" alt="Avenger Image"  style="">
+        <div class="container">
+           <div class="row card-1" >
+              <div class="col-md-3 ">
+                 <div>
+                    <img class="movie-img img-responsive" [src]="movie.movieImg" alt="Avenger Image"  style="">
+                 </div>
               </div>
-          </div>
-          <div class="col-md-9 ">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-                        <p class="movie-name">Avengers: Age of Ultron</p>
+              <div class="col-md-9 ">
+                 <div class="container">
+                    <div class="row">
+                       <div class="col-md-8">
+                          <p class="movie-name">{{movie.movieName}}</p>
+                       </div>
+                       <div class="col-md-4 ">
+                          <div class="avrg-rating">rating : {{movie.movieAvrgRating}}/5</div>
+                       </div>
                     </div>
-                    <div class="col-md-4 ">
-                        <div class="avrg-rating">rating : 4.5/5</div>
+                 </div>
+                 <div class="container">
+                    <div class="row">
+                       <div class="col-md-12">
+                          <p class="movie-description">
+                             {{movie.movieDescription}}
+                          </p>
+                       </div>
                     </div>
+                 </div>
+                 <div class="container">
+                    <div class="row" style="margin-bottom: 10px;">
+                       <div class="col-md-4" style="padding-left: 30px">Laguage : {{movie.movieLanguage}}</div>
+                       <div class="col-md-4">Year : {{movie.movieYear}}</div>
+                       <div class="col-md-4">Reviews : {{movie.movieTotalReviews}}</div>
+                    </div>
+                 </div>
               </div>
-            </div>
-              <div class="container">
-                  <div class="row">
-                      <div class="col-md-12">
-                        <p class="movie-description">
-                            In eu risus metus. Proin viverra pellentesque dui vel tempus. 
-                            Aliquam ac gravida felis. Maecenas fringilla est dapibus, consequat lacus nec, tempus lectus.
-                            Aenean est ligula, volutpat non magna eget, lacinia tincidunt justo. Etiam aliquam leo mauris, tempor porta risus imperdiet in.
-                            Nulla libero orci, porta et tincidunt et, consectetur ut lectus. Nulla a sem in justo volutpat ultricies. 
-                            Fusce eu nunc eros. Vivamus sed viverra ipsum. 
-                            Mauris a ligula et arcu placerat congue ut vitae urna. 
-                            Integer id elit mollis, ornare nunc ac, lobortis nulla. 
-                            Nam vel mollis nisi. Sed odio augue, placerat at velit at, bibendum ultrices urna. 
-                            In hac habitasse platea dictumst. Integer sollicitudin blandit sodales.
-                        </p>
-                      </div>
-                </div>
-              </div>
-              <div class="container">
-                  <div class="row">
-                    <div class="col-md-4" style="padding-left: 30px">Laguage : English</div>
-                    <div class="col-md-4">Year : 2006</div>
-                    <div class="col-md-4">Reviews : 25</div>
-                  </div>
-              </div>
-              
-          </div>
+           </div>
         </div>
-    </div>
-    <div class="container">
-          <div class="row mt-5">
-                <h1 style="margin-left: 12px;" >Reviews</h1>
-          </div>
-    </div>
-    <div class="container">
-      <div class="row mt-3 ">
-          <div class="col-md-12 card">
-              <div class="row inner-row">
-                  <div class="col-md-3">
-                      <div>
-                          <img src="./assets/img/avtar.png" alt="Cute kitten" class="img-responsive user-img"></div>
-                  </div>
-                  <div class="col-md-9">
-                      <div class="row">
-                        <div class="col-md-4 user-name">
-                                User Name
-                        </div>
-                        <div class="col-md-8 user-rating">
-                             Rating : 4/5
-                        </div>
-                      </div> 
-                      <div class="row">
-                        <p class="user-review">
-                            Fusce eu nunc eros. Vivamus sed viverra ipsum. 
-                            Mauris a ligula et arcu placerat congue ut vitae urna. 
-                            Integer id elit mollis, ornare nunc ac, lobortis nulla.
-                        </p>
-                      </div>   
-                  </div>
-              </div>
-                
-            </div>
-
-
-            <div class="col-md-12 card">
-                <div class="row inner-row">
-                    <div class="col-md-3 ">
-                        <div>
-                            <img src="./assets/img/avtar.png" alt="Cute kitten" class="img-responsive user-img"></div>
+        <div *ngIf="isLogin() && !isReviewed()" class="container">
+           <div class="row">
+              <div class="col-md-12 card">
+                 <div class="row inner-row">
+                    <div class="col-md-3">
+                       <div>
+                          <img src="./assets/img/avtar.png" alt="Cute kitten" class="img-responsive user-img">
+                       </div>
+                       <div>
+                          Hello User name
+                       </div>
                     </div>
                     <div class="col-md-9">
-                        <div class="row">
+                       <div class="row">
+                           <form #reviewForm ="ngForm" (ngSubmit)="onSubmit(reviewForm)">
+                                <textarea  name="name" ngModel class="text-area form-control">
+                                
+                                </textarea>    
+                                <input type="submit" value="submit" class="btn btn-primary" style="
+                                    margin-bottom: 5px;">
+                           </form>                           
+                       </div>
+                       <div class="row ">
+                          <div >
+                             Your Rating : 
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div *ngIf="isLogin() && isReviewed()" class="container">
+           <div class="row">
+              <div class="col-md-12 card">
+                 <div class="row inner-row">
+                    <div class="col-md-3">
+                       <div>
+                          <img src="./assets/img/avtar.png" alt="Cute kitten" class="img-responsive user-img">
+                       </div>
+                       <div>
+                          User name
+                       </div>
+                    </div>
+                    <div class="col-md-9">
+                       <div class="row">
+                          <p class="user-review">
+                             Fusce eu nunc eros. Vivamus sed viverra ipsum. 
+                             Mauris a ligula et arcu placerat congue ut vitae urna. 
+                             Integer id elit mollis, ornare nunc ac, lobortis nulla.
+                          </p>
+                       </div>
+                       <div class="row ">
+                          <div class="col-md-12 user-rating">
+                             Rating : 
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div class="container">
+           <div class="row mt-5">
+              <h1 style="margin-left: 12px;" >Reviews</h1>
+           </div>
+        </div>
+        <div class="container">
+           <div *ngFor="let review of reviews" class="row mt-3 ">
+              <div class="col-md-12 card">
+                 <div class="row inner-row">
+                    <div class="col-md-3">
+                       <div>
+                          <img [src]="review.userImage" alt="Cute kitten" class="img-responsive user-img">
+                       </div>
+                    </div>
+                    <div class="col-md-9">
+                       <div class="row">
                           <div class="col-md-4 user-name">
-                                  User Name
+                             {{review.userName}}
                           </div>
                           <div class="col-md-8 user-rating">
-                               Rating : 4.5/5 
+                             Rating : {{review.userRating}}/5
                           </div>
-                        </div> 
-                        <div class="row user-review">
-                          <p>
-                              Fusce eu nunc eros. Vivamus sed viverra ipsum. 
-                              Mauris a ligula et arcu placerat congue ut vitae urna. 
-                              Integer id elit mollis, ornare nunc ac, lobortis nulla.
+                       </div>
+                       <div class="row">
+                          <p class="user-review">
+                             {{review.userReview}}
                           </p>
-                        </div>   
+                       </div>
                     </div>
-                </div>
-                  
+                 </div>
               </div>
-      </div>
-  </div> 
-</div>
-
+           </div>
+        </div>
+     </div>

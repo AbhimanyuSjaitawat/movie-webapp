@@ -1,3 +1,159 @@
-<p>
-  movie-detail works!
-</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Movie Review System</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-warning" href="#">Login / Register</a>
+          </li>
+  
+        </ul>
+      </div>
+    </div>
+  </nav>
+<div class="box">
+        <div class="container">
+           <div class="row card-1" >
+              <div class="col-md-3 ">
+                 <div>
+                    <img class="movie-img img-responsive" [src]="movie.movieImg" alt="Avenger Image"  style="">
+                 </div>
+              </div>
+              <div class="col-md-9 ">
+                 <div class="container">
+                    <div class="row">
+                       <div class="col-md-8">
+                          <p class="movie-name">{{movie.movieName}}</p>
+                       </div>
+                       <div class="col-md-4 ">
+                          <div class="avrg-rating">rating : {{movie.movieAvrgRating}}/5</div>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="container">
+                    <div class="row">
+                       <div class="col-md-12">
+                          <p class="movie-description">
+                             {{movie.movieDescription}}
+                          </p>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="container">
+                    <div class="row" style="margin-bottom: 10px;">
+                       <div class="col-md-4" style="padding-left: 30px">Laguage : {{movie.movieLanguage}}</div>
+                       <div class="col-md-4">Year : {{movie.movieYear}}</div>
+                       <div class="col-md-4">Reviews : {{movie.movieTotalReviews}}</div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div *ngIf="isLogin() && !isReviewed()" class="container">
+           <div class="row">
+              <div class="col-md-12 card">
+                 <div class="row inner-row">
+                    <div class="col-md-3">
+                       <div>
+                          <img src="./assets/img/avtar.png" alt="Cute kitten" class="img-responsive user-img">
+                       </div>
+                       <div>
+                          Hello User name
+                       </div>
+                    </div>
+                    <div class="col-md-9">
+                       <div class="row">
+                           <form #reviewForm ="ngForm" (ngSubmit)="onSubmit(reviewForm)">
+                                <textarea  name="name" ngModel class="text-area form-control">
+                                
+                                </textarea>    
+                                <input type="submit" value="submit" class="btn btn-primary" style="
+                                    margin-bottom: 5px;">
+                           </form>                           
+                       </div>
+                       <div class="row ">
+                          <div >
+                             Your Rating : 
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div *ngIf="isLogin() && isReviewed()" class="container">
+           <div class="row">
+              <div class="col-md-12 card">
+                 <div class="row inner-row">
+                    <div class="col-md-3">
+                       <div>
+                          <img src="./assets/img/avtar.png" alt="Cute kitten" class="img-responsive user-img">
+                       </div>
+                       <div>
+                          User name
+                       </div>
+                    </div>
+                    <div class="col-md-9">
+                       <div class="row">
+                          <p class="user-review">
+                             Fusce eu nunc eros. Vivamus sed viverra ipsum. 
+                             Mauris a ligula et arcu placerat congue ut vitae urna. 
+                             Integer id elit mollis, ornare nunc ac, lobortis nulla.
+                          </p>
+                       </div>
+                       <div class="row ">
+                          <div class="col-md-12 user-rating">
+                             Rating : 
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <div class="container">
+           <div class="row mt-5">
+              <h1 style="margin-left: 12px;" >Reviews</h1>
+           </div>
+        </div>
+        <div class="container">
+           <div *ngFor="let review of reviews" class="row mt-3 ">
+              <div class="col-md-12 card">
+                 <div class="row inner-row">
+                    <div class="col-md-3">
+                       <div>
+                          <img [src]="review.userImage" alt="Cute kitten" class="img-responsive user-img">
+                       </div>
+                    </div>
+                    <div class="col-md-9">
+                       <div class="row">
+                          <div class="col-md-4 user-name">
+                             {{review.userName}}
+                          </div>
+                          <div class="col-md-8 user-rating">
+                             Rating : {{review.userRating}}/5
+                          </div>
+                       </div>
+                       <div class="row">
+                          <p class="user-review">
+                             {{review.userReview}}
+                          </p>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>

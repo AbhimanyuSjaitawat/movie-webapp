@@ -1,3 +1,45 @@
-<p>
-  moviecategories works!
-</p>
+<div class="myback"><nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Movie Review System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#" routerLink="categoryMovie"> Category <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-warning" href="#">Login / Register</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container ">
+<div class="row mt-5 mb-2">
+<div *ngFor="let category of categories">
+<div class="col-md-2 mb-3">
+  <a routerLink="/homepage">
+    <div class="card" [ngStyle]="{'background-image': 'url(' + category.coverimage + ')'}">
+
+      <div *ngIf="false" class="card-body " style="color:black;">
+        <h2 class="heading">{{category.cname}}</h2>
+      </div>
+    </div>
+     <p>{{category.cname}}</p>
+  </a>
+</div>	
+</div>
+
+</div>
+
+</div>
+</div>

@@ -12,8 +12,8 @@
             <span class="sr-only">(current)</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Categories</a>
+        <li class="nav-item active">
+          <a class="nav-link" href="#" routerLink="categoryMovie"> Category <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link btn btn-warning" href="#">Login / Register</a>
@@ -95,7 +95,7 @@
         <div *ngFor="let movie of movies">
           <div class=col-md-3>
             <div class="card-1 movie-card">
-<a routerLink="/video">
+<a routerLink="/movie-detail">
            <img class="movie-card-img" src="https://i.pinimg.com/236x/7a/76/82/7a76826b00a142a7c677c519d8e856c7--sci-fi-films-cinema-movies.jpg">
            <h2>{{movie.movieName}}</h2>  
           </a>

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule }   from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './user/login/login.component';
@@ -13,12 +13,14 @@ import { MoviecategoriesComponent } from './moviecategories/moviecategories.comp
 import { MovieListComponent } from './movie/movie-list/movie-list.component';
 
 
+
 const appRoutes: Routes = [
   { path: 'homepage', component: HomepageComponent },
   { path: 'login', component: LoginComponent},
-  { path: 'categoryMovie', component: MovieListComponent},
+  { path: 'categoryMovie', component: MoviecategoriesComponent},
   { path: '', component: HomepageComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'movie-detail', component: MovieDetailComponent }
 ];
 
 @NgModule({
@@ -35,6 +37,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

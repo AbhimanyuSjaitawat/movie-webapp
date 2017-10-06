@@ -1,6 +1,68 @@
-.myCard{
+.myCard {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #ffff99;
+}
 
-margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: #ffff99;
+.carousel-item {
+  height: 100vh;
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.d-none {
+  top: 40%;
+}
+
+.d-none h3 {
+ font-size: 5rem;
+ text-shadow: 1px 1px rgba(0, 0, 0, 0.38);
+ font-weight: 200;
+}
+
+.d-none p {
+  font-size: 2rem;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.38);
+  font-weight: 200;
+ }
+ 
+
+.box-carousel{
+
+float: left;
+}
+
+.carousel-inner>.item {
+  display: none;
+  position: relative;
+  -webkit-transition: .6s ease-in-out left;
+  transition: .6s ease-in-out left;
+}
+
+
+.card-1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card-1:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+
+.movie-card-img{
+
+  width: 100%;
+
+}
+
+.movie-card{
+width: 200px;
+height: auto;
+  padding: 5px;
+  border-radius: 10px;
 }

@@ -9,11 +9,14 @@ import { MovieCardComponent } from './movie/movie-card/movie-card.component';
 import { MovieDetailComponent } from './movie/movie-detail/movie-detail.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main/main.component';
+import { MoviecategoriesComponent } from './moviecategories/moviecategories.component';
+import { MovieListComponent } from './movie/movie-list/movie-list.component';
 
 
 const appRoutes: Routes = [
   { path: 'homepage', component: HomepageComponent },
   { path: 'login', component: LoginComponent},
+  { path: 'categoryMovie', component: MovieListComponent},
   { path: '', component: HomepageComponent },
   { path: 'register', component: RegisterComponent }
 ];
@@ -26,7 +29,9 @@ const appRoutes: Routes = [
     RegisterComponent,
     MovieCardComponent,
     MovieDetailComponent,
-    MainComponent
+    MainComponent,
+    MoviecategoriesComponent,
+    MovieListComponent
   ],
   imports: [
     BrowserModule,
